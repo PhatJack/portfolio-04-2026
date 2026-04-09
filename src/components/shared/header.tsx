@@ -39,23 +39,23 @@ const Header = () => {
   }, [open])
 
   return (
-    <header className="sticky top-0 z-50 grid w-full place-items-center border-b-4 border-border bg-off-white">
+    <header className="sticky top-0 z-999 grid w-full place-items-center border-b-4 border-border bg-off-white">
       <div className="container">
         <div className="flex w-full items-center justify-between px-4 py-4 md:px-8">
           {/* Logo */}
           <div className="relative h-8 w-16 sm:h-12 sm:w-24">
-            <img src="/logo.png" className="absolute inset-0 -translate-y-1" />
+            <img src="/logo.png" className="absolute inset-0 -translate-y-2" />
           </div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:block">
             <ul className="flex items-center gap-4">
               {MENU_ITEMS.map((item) => (
-                <li key={item.hash}>
+                <li key={item.hash === "" ? "home" : item.hash}>
                   <Link
                     {...item}
                     className={cn(
-                      "border-2 border-transparent bg-transparent px-4 py-2 uppercase shadow-none transition-all hover:border-border hover:bg-main hover:shadow-shadow",
+                      "border-2 border-transparent bg-transparent px-4 py-2 uppercase shadow-none transition-all hover:border-border hover:bg-main hover:shadow-hover",
                       location.pathname === item.to &&
                         location.hash === item.hash &&
                         "border-border bg-main shadow-shadow"
@@ -91,7 +91,7 @@ const Header = () => {
           <ul
             ref={menuRef}
             data-open={open}
-            className="flex h-0 flex-col gap-3 px-4 data-open:pb-4 data-[open=false]:opacity-0 data-open:opacity-100"
+            className="flex h-0 flex-col gap-3 px-4 data-[open=false]:opacity-0 data-open:pb-4 data-open:opacity-100"
           >
             {MENU_ITEMS.map((item) => (
               <li key={item.hash}>

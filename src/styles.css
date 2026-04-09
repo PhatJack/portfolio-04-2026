@@ -23,6 +23,11 @@
 	--sky-blue: #74B9FF;
 	--soft-green: #88D498;
 	--soft-orange: #FFA552;
+	--pink-light: #FFE0E0;
+	--blue-light: #E3F2FD;
+	--green-light: #E8F5E9;
+	--orange-light: #FFF0E0;
+	--yellow-light: #FFF3C4;
 }
 
 .dark {
@@ -42,7 +47,11 @@
 	--sky-blue: #74B9FF;
 	--soft-green: #88D498;
 	--soft-orange: #FFA552;
-
+	--pink-light: #FFE0E0;
+	--blue-light: #E3F2FD;
+	--green-light: #E8F5E9;
+	--orange-light: #FFF0E0;
+	--yellow-light: #FFF3C4;
 }
 
 @theme inline {
@@ -60,6 +69,11 @@
 	--color-sky-blue: var(--sky-blue);
 	--color-soft-green: var(--soft-green);
 	--color-soft-orange: var(--soft-orange);
+	--color-pink-light: var(--pink-light);
+	--color-blue-light: var(--blue-light);
+	--color-green-light: var(--green-light);
+	--color-orange-light: var(--orange-light);
+	--color-yellow-light: var(--yellow-light);
 
 	--spacing-boxShadowX: 4px;
 	--spacing-boxShadowY: 4px;
@@ -74,9 +88,37 @@
 	--font-space-grotesk: "Space Grotesk", sans-serif;
 	--font-manrope: "Manrope", sans-serif;
 	--font-syne: "Syne", sans-serif;
+
+	--animate-marquee: marquee 15s linear infinite;
+	--animate-marquee2: marquee2 15s linear infinite;
+
+	@keyframes marquee {
+		0% {
+			transform: translateX(0%);
+		}
+
+		100% {
+			transform: translateX(-100%);
+		}
+	}
+
+	@keyframes marquee2 {
+		0% {
+			transform: translateX(100%);
+		}
+
+		100% {
+			transform: translateX(0%);
+		}
+	}
+
 }
 
 @layer base {
+	html {
+		@apply scroll-smooth
+	}
+
 	body {
 		@apply text-foreground font-base font-syne bg-off-white antialiased;
 	}
