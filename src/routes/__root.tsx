@@ -2,6 +2,7 @@ import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
 
 import appCss from "../styles.css?url"
 import Header from "@/components/shared/header"
+import Footer from "@/components/shared/footer"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -56,8 +57,15 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <Header />
-        {children}
+        <div className="bg-typography w-full sm:pt-6 sm:pb-16">
+          <div className="container mx-auto size-full">
+            <div className="relative border-4 border-border bg-off-white shadow-shadow">
+              <Header />
+              {children}
+              <Footer />
+            </div>
+          </div>
+        </div>
         <Scripts />
       </body>
     </html>
