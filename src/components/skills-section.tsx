@@ -44,11 +44,11 @@ const SkillsSection = () => {
       ref={sectionRef}
       className="relative w-full overflow-hidden bg-orange-light px-4 py-20 sm:px-6 md:px-10"
     >
-      <div className="skills-heading relative z-10 mb-12 max-w-2xl border-4 border-border bg-off-white p-5 shadow-shadow md:p-8">
+      <div className="relative z-10 mb-12 max-w-2xl border-4 border-border bg-off-white p-5 shadow-shadow md:p-8">
         <p className="mb-3 inline-block border-4 border-border bg-bold-yellow px-3 py-1 text-xs tracking-[0.2em]">
           SKILL STACK
         </p>
-        <h2 className="text-4xl leading-[0.95] font-heading uppercase sm:text-5xl md:text-6xl">
+        <h2 className="text-4xl leading-[0.95] font-heading uppercase sm:text-5xl">
           Tools I Build With
         </h2>
       </div>

@@ -9,7 +9,7 @@ const ContactSection = () => {
       </div>
       <div className="relative z-10 max-w-3xl">
         <h2 className="mb-6 text-3xl leading-none font-black tracking-tighter uppercase sm:text-4xl md:text-5xl lg:text-7xl">
-          Let's build something loud together.
+          Let's build something <span className="text-soft-orange">loud</span> together.
         </h2>
         <p className="mb-8 max-w-2xl text-base font-bold opacity-80 sm:text-lg md:text-2xl">
           Currently accepting new projects and creative collaborations.
