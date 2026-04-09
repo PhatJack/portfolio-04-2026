@@ -1,25 +1,25 @@
+import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
 import { Link, linkOptions } from "@tanstack/react-router"
 
-const MENU_ITEMS = linkOptions([
-  {
+const MENU_ITEMS = [
+  linkOptions({
     label: "Home",
     to: "/",
-    activeOptions: { exact: true },
-  },
-  {
+  }),
+  linkOptions({
     to: "/about",
     label: "About",
-  },
-  {
+  }),
+  linkOptions({
     to: "/projects",
     label: "Projects",
-  },
-  {
+  }),
+  linkOptions({
     to: "/contact",
     label: "Contact",
-  },
-])
+  }),
+]
 
 const Header = () => {
   return (
@@ -36,8 +36,12 @@ const Header = () => {
                   <Link
                     {...item}
                     to={item.to}
-                    activeProps={{ className: "border-border bg-main" }}
-                    className="border-2 border-transparent bg-transparent px-4 py-2 uppercase transition-all hover:border-border hover:bg-main"
+                    className={cn(
+                      "border-2 border-transparent bg-transparent px-4 py-2 uppercase shadow-none transition-all hover:border-border hover:bg-main hover:shadow-shadow [&.active]:border-border [&.active]:bg-main [&.active]:shadow-shadow"
+                    )}
+                    activeOptions={{
+                      exact: true,
+                    }}
                   >
                     {item.label}
                   </Link>

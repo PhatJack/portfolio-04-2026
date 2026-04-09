@@ -15,6 +15,8 @@
 	--ring: oklch(0% 0 0);
 	--overlay: oklch(0% 0 0 / 0.8);
 	--shadow: 4px 4px 0px 0px var(--border);
+	--shadow-hover: 6px 6px 0px 0px var(--border);
+	--shadow-pressed: 0px 0px 0px 0px var(--border);
 	--off-white: #FFFDF5;
 	--bold-yellow: #FFD23F;
 	--coral-pink: #FF6B6B;
@@ -32,6 +34,8 @@
 	--border: oklch(0% 0 0);
 	--ring: oklch(100% 0 0);
 	--shadow: 4px 4px 0px 0px var(--border);
+	--shadow-hover: 6px 6px 0px 0px var(--border);
+	--shadow-pressed: 0px 0px 0px 0px var(--border);
 	--off-white: #FFFDF5;
 	--bold-yellow: #FFD23F;
 	--coral-pink: #FF6B6B;
@@ -63,15 +67,18 @@
 	--spacing-reverseBoxShadowY: -4px;
 	--radius-base: 0px;
 	--shadow-shadow: var(--shadow);
+	--shadow-hover: var(--shadow-hover);
+	--shadow-pressed: var(--shadow-pressed);
 	--font-weight-base: 500;
 	--font-weight-heading: 700;
 	--font-space-grotesk: "Space Grotesk", sans-serif;
 	--font-manrope: "Manrope", sans-serif;
+	--font-syne: "Syne", sans-serif;
 }
 
 @layer base {
 	body {
-		@apply text-foreground font-base font-manrope bg-off-white;
+		@apply text-foreground font-base font-syne bg-off-white antialiased;
 	}
 
 	h1,
