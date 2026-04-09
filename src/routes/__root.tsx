@@ -1,8 +1,7 @@
 import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
-import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools"
-import { TanStackDevtools } from "@tanstack/react-devtools"
 
 import appCss from "../styles.css?url"
+import Header from "@/components/shared/header"
 
 export const Route = createRootRoute({
   head: () => ({
@@ -15,13 +14,35 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "TanStack Start Starter",
+        title: "jackphat.dev",
       },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
+      },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Space+Grotesk:wght@300..700&display=swap",
+        // integrity: "sha384-xxxx",
+        // crossOrigin: "anonymous",
+        // referrerPolicy: "no-referrer",
+        // media: "all",
+        // type: "text/css",
+        // onLoad: "this.onload=null;this.rel='stylesheet'",
+        // onError: "console.error('Failed to load font stylesheet')",
+        // as: "style",
+        // defer: true,
       },
     ],
   }),
@@ -35,18 +56,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <Header />
         {children}
-        <TanStackDevtools
-          config={{
-            position: "bottom-right",
-          }}
-          plugins={[
-            {
-              name: "Tanstack Router",
-              render: <TanStackRouterDevtoolsPanel />,
-            },
-          ]}
-        />
         <Scripts />
       </body>
     </html>
