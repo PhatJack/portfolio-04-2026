@@ -57,7 +57,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
-        <div className="bg-typography w-full sm:pt-6 sm:pb-16">
+        <div className="bg-typography w-full sm:pt-6 pb-24">
           <div className="container mx-auto size-full">
             <div className="relative border-4 border-border bg-off-white shadow-shadow">
               <Header />

@@ -1,4 +1,10 @@
+import { useRef } from "react"
 import { Button } from "../ui/button"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const MENU_SOCIALS = [
   {
@@ -20,9 +26,35 @@ const MENU_SOCIALS = [
 ]
 
 const Footer = () => {
+  const containerRef = useRef<HTMLElement>(null)
+  const innerRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(() => {
+    if (!containerRef.current || !innerRef.current) return
+
+    gsap.fromTo(
+      innerRef.current,
+      { yPercent: -70 },
+      {
+        yPercent: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top bottom",
+          end: "bottom bottom",
+          scrub: true,
+        },
+      }
+    )
+  }, [])
+
   return (
-    <footer className="relative flex min-h-110 w-full flex-col justify-between overflow-hidden border-t-4 border-border bg-bold-yellow p-6 sm:min-h-120 sm:p-8">
-      <div className="w-full">
+    <footer
+      ref={containerRef}
+      className="relative flex min-h-110 w-full flex-col justify-between overflow-hidden border-t-4 border-border bg-bold-yellow p-6 sm:min-h-120 sm:p-8"
+    >
+      <div ref={innerRef} className="flex h-full w-full flex-col justify-between">
+        <div className="w-full">
         <h2 className="text-[12vw] leading-none font-black tracking-tighter text-black uppercase md:text-[10vw]">
           JACKPHAT.EXE
         </h2>
@@ -58,6 +90,7 @@ const Footer = () => {
             Built with love from JackPhat 💗
           </p>
         </div>
+      </div>
       </div>
     </footer>
   )

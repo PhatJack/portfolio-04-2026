@@ -88,12 +88,18 @@ const ProjectSection = () => {
   return (
     <div className="border-y-4 border-border bg-off-white px-4 py-20 font-manrope sm:px-8">
       <div className="w-full">
-        <h3 className="mb-16 text-left text-6xl uppercase md:text-8xl">
-          Gallery of{" "}
-          <span className="text-transparent [-webkit-text-stroke:4px_var(--bold-yellow)]">
-            work
+        <div className="mb-16 flex items-end gap-4">
+          <h3 className="text-left text-6xl whitespace-nowrap uppercase md:leading-[0.75] md:text-8xl">
+            Gallery of{" "}
+            <span className="text-transparent [-webkit-text-stroke:4px_var(--bold-yellow)]">
+              work
+            </span>
+          </h3>
+          <span className="h-1 w-full bg-border/50 mb-1" />
+          <span className="text-lg font-black whitespace-nowrap md:text-xl">
+            5 PROJECTS
           </span>
-        </h3>
+        </div>
 
         <div className="flex flex-col border-t-4 border-r-4 border-border bg-white shadow-shadow">
           {projects.map((project) => (

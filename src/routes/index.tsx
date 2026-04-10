@@ -6,8 +6,14 @@ import AboutSection from "@/components/about-section"
 import CareerSection from "@/components/career-section"
 import OfflineSection from "@/components/offline-section"
 import ProjectSection from "@/components/project-section"
-
+import "lenis/dist/lenis.css"
+import Lenis from "lenis"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 export const Route = createFileRoute("/")({ component: App })
+
+gsap.registerPlugin(ScrollTrigger)
 
 function App() {
   const ITEMS = [
@@ -20,6 +26,23 @@ function App() {
     "Adaptable",
     "Problem-solver",
   ]
+
+  useGSAP(() => {
+    // Initialize a new Lenis instance for smooth scrolling
+    const lenis = new Lenis()
+
+    // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+    lenis.on("scroll", ScrollTrigger.update)
+
+    // Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+    // This ensures Lenis's smooth scroll animation updates on each GSAP tick
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000) // Convert time from seconds to milliseconds
+    })
+
+    // Disable lag smoothing in GSAP to prevent any delay in scroll animations
+    gsap.ticker.lagSmoothing(0)
+  })
 
   return (
     <main className="min-h-svh w-full divide-y-4 divide-border overflow-hidden">
@@ -38,7 +61,7 @@ function App() {
       <div className="">
         <OfflineSection />
       </div>
-      <div className="">
+      <div id="projects" className="">
         <ProjectSection />
       </div>
       <div id="contact" className="px-4 py-8 sm:p-8">

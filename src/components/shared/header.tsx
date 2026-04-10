@@ -1,4 +1,4 @@
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { Button } from "../ui/button"
 import { Link, linkOptions, useLocation } from "@tanstack/react-router"
@@ -17,9 +17,38 @@ const Header = () => {
   const location = useLocation()
   const [open, setOpen] = useState(false)
   const menuRef = useRef<HTMLUListElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
+  const [isVisible, setIsVisible] = useState(true)
+  const lastScrollY = useRef(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      
+      if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+        setIsVisible(false)
+        setOpen(false)
+      } else {
+        setIsVisible(true)
+      }
+      
+      lastScrollY.current = currentScrollY
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   // GSAP animation
   useGSAP(() => {
+    if (headerRef.current) {
+      if (isVisible) {
+        gsap.to(headerRef.current, { y: 0, duration: 0.3, ease: "power2.out" })
+      } else {
+        gsap.to(headerRef.current, { y: "-100%", duration: 0.3, ease: "power2.out" })
+      }
+    }
+
     if (!menuRef.current) return
 
     if (open) {
@@ -36,10 +65,10 @@ const Header = () => {
         ease: "power2.in",
       })
     }
-  }, [open])
+  }, [open, isVisible])
 
   return (
-    <header className="sticky top-0 z-999 grid w-full place-items-center border-b-4 border-border bg-off-white">
+    <header ref={headerRef} className="sticky top-0 z-999 grid w-full place-items-center border-b-4 border-border bg-off-white">
       <div className="container">
         <div className="flex w-full items-center justify-between px-4 py-4 md:px-8">
           {/* Logo */}
