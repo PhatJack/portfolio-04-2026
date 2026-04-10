@@ -28,6 +28,22 @@
 	--green-light: #E8F5E9;
 	--orange-light: #FFF0E0;
 	--yellow-light: #FFF3C4;
+	--shadow-color-bold-yellow: var(--bold-yellow);
+	--shadow-shadow-bold-yellow: 4px 4px 0px 0px var(--bold-yellow);
+	--shadow-coral-pink: 4px 4px 0px 0px var(--coral-pink);
+	--shadow-sky-blue: 4px 4px 0px 0px var(--sky-blue);
+	--shadow-soft-green: 4px 4px 0px 0px var(--soft-green);
+	--shadow-soft-orange: 4px 4px 0px 0px var(--soft-orange);
+	--shadow-bold-yellow-hover: 6px 6px 0px 0px var(--bold-yellow);
+	--shadow-coral-pink-hover: 6px 6px 0px 0px var(--coral-pink);
+	--shadow-sky-blue-hover: 6px 6px 0px 0px var(--sky-blue);
+	--shadow-soft-green-hover: 6px 6px 0px 0px var(--soft-green);
+	--shadow-soft-orange-hover: 6px 6px 0px 0px var(--soft-orange);
+	--shadow-bold-yellow-pressed: 0px 0px 0px 0px var(--bold-yellow);
+	--shadow-coral-pink-pressed: 0px 0px 0px 0px var(--coral-pink);
+	--shadow-sky-blue-pressed: 0px 0px 0px 0px var(--sky-blue);
+	--shadow-soft-green-pressed: 0px 0px 0px 0px var(--soft-green);
+	--shadow-soft-orange-pressed: 0px 0px 0px 0px var(--soft-orange);
 }
 
 .dark {
@@ -52,6 +68,21 @@
 	--green-light: #E8F5E9;
 	--orange-light: #FFF0E0;
 	--yellow-light: #FFF3C4;
+	--shadow-bold-yellow: 4px 4px 0px 0px var(--bold-yellow);
+	--shadow-coral-pink: 4px 4px 0px 0px var(--coral-pink);
+	--shadow-sky-blue: 4px 4px 0px 0px var(--sky-blue);
+	--shadow-soft-green: 4px 4px 0px 0px var(--soft-green);
+	--shadow-soft-orange: 4px 4px 0px 0px var(--soft-orange);
+	--shadow-bold-yellow-hover: 6px 6px 0px 0px var(--bold-yellow);
+	--shadow-coral-pink-hover: 6px 6px 0px 0px var(--coral-pink);
+	--shadow-sky-blue-hover: 6px 6px 0px 0px var(--sky-blue);
+	--shadow-soft-green-hover: 6px 6px 0px 0px var(--soft-green);
+	--shadow-soft-orange-hover: 6px 6px 0px 0px var(--soft-orange);
+	--shadow-bold-yellow-pressed: 0px 0px 0px 0px var(--bold-yellow);
+	--shadow-coral-pink-pressed: 0px 0px 0px 0px var(--coral-pink);
+	--shadow-sky-blue-pressed: 0px 0px 0px 0px var(--sky-blue);
+	--shadow-soft-green-pressed: 0px 0px 0px 0px var(--soft-green);
+	--shadow-soft-orange-pressed: 0px 0px 0px 0px var(--soft-orange);
 }
 
 @theme inline {
@@ -83,6 +114,22 @@
 	--shadow-shadow: var(--shadow);
 	--shadow-hover: var(--shadow-hover);
 	--shadow-pressed: var(--shadow-pressed);
+	--shadow-bold-yellow: 4px 4px 0px 0px var(--bold-yellow);
+	--shadow-coral-pink: 4px 4px 0px 0px var(--coral-pink);
+	--shadow-sky-blue: 4px 4px 0px 0px var(--sky-blue);
+	--shadow-soft-green: 4px 4px 0px 0px var(--soft-green);
+	--shadow-soft-orange: 4px 4px 0px 0px var(--soft-orange);
+	--shadow-bold-yellow-hover: 6px 6px 0px 0px var(--bold-yellow);
+	--shadow-coral-pink-hover: 6px 6px 0px 0px var(--coral-pink);
+	--shadow-sky-blue-hover: 6px 6px 0px 0px var(--sky-blue);
+	--shadow-soft-green-hover: 6px 6px 0px 0px var(--soft-green);
+	--shadow-soft-orange-hover: 6px 6px 0px 0px var(--soft-orange);
+	--shadow-bold-yellow-pressed: 0px 0px 0px 0px var(--bold-yellow);
+	--shadow-coral-pink-pressed: 0px 0px 0px 0px var(--coral-pink);
+	--shadow-sky-blue-pressed: 0px 0px 0px 0px var(--sky-blue);
+	--shadow-soft-green-pressed: 0px 0px 0px 0px var(--soft-green);
+	--shadow-soft-orange-pressed: 0px 0px 0px 0px var(--soft-orange);
+	
 	--font-weight-base: 500;
 	--font-weight-heading: 700;
 	--font-space-grotesk: "Space Grotesk", sans-serif;
