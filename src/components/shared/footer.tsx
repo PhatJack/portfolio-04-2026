@@ -1,3 +1,5 @@
+import { Button } from "../ui/button"
+
 const MENU_SOCIALS = [
   {
     label: "INSTAGRAM",
@@ -42,11 +44,17 @@ const Footer = () => {
           ))}
         </div>
         <div className="max-w-xs text-right">
+          <Button
+            className="mb-4"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            Scroll to top
+          </Button>
           <p className="font-space-grotesk leading-tight font-black text-black uppercase">
             ©{new Date().getFullYear()} NON-CONFORMIST CURATIONS / ALL ERRORS
             INTENDED
           </p>
-          <p className="font-manrope tracking-wider mt-4 text-sm font-bold text-black uppercase opacity-70">
+          <p className="mt-4 font-manrope text-sm font-bold tracking-wider text-black uppercase opacity-70">
             Built with love from JackPhat 💗
           </p>
         </div>

@@ -4,6 +4,7 @@ import ContactSection from "@/components/contact-section"
 import SkillsSection from "@/components/skills-section"
 import AboutSection from "@/components/about-section"
 import CareerSection from "@/components/career-section"
+import OfflineSection from "@/components/offline-section"
 
 export const Route = createFileRoute("/")({ component: App })
 
@@ -20,7 +21,7 @@ function App() {
   ]
 
   return (
-    <main className="min-h-svh w-full overflow-hidden divide-y-4 divide-border">
+    <main className="min-h-svh w-full divide-y-4 divide-border overflow-hidden">
       <div id="about" className="px-4 py-8 sm:p-8">
         <AboutSection />
       </div>
@@ -30,9 +31,12 @@ function App() {
       <div id="skills">
         <SkillsSection />
       </div>
-			<div className="">
-				<CareerSection />
-			</div>
+      <div className="">
+        <CareerSection />
+      </div>
+      <div className="">
+        <OfflineSection />
+      </div>
       <div id="contact" className="px-4 py-8 sm:p-8">
         <ContactSection />
       </div>
