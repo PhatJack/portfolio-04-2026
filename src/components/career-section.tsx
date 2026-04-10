@@ -20,7 +20,6 @@ const careerItems = [
       "Debugged and resolved software defects to improve application stability and user experience.",
       "Improved and refined UI components based on design updates and user feedback.",
     ],
-    side: "left",
     cardClassName: "-rotate-1",
     markerClassName: "bg-bold-yellow",
     variant: "square",
@@ -34,10 +33,22 @@ const careerItems = [
       "Implemented enhancements that improve web functionality and responsiveness.",
       "Developing and maintaining the front-end functionality of websites.",
     ],
-    side: "right",
     cardClassName: "rotate-1",
     markerClassName: "bg-soft-green",
     variant: "circle",
+  },
+  {
+    period: "July 2024 - Aug 2025",
+    role: "Freelance Front-end Developer",
+    company: "VARIOUS CLIENTS",
+    description: [
+      "Collaborated with clients to understand their requirements and translate them into functional web applications.",
+      "Designed and implemented user interfaces using React and Tailwind CSS.",
+      "Ensured cross-browser compatibility and optimized web applications for performance and responsiveness.",
+    ],
+    cardClassName: "rotate-1",
+    markerClassName: "bg-sky-blue",
+    variant: "square",
   },
   {
     period: "2021 - 2026",
@@ -46,7 +57,6 @@ const careerItems = [
     description: [
       "Assisted in the development of static marketing pages and learned the fundamentals of semantic HTML and CSS architecture.",
     ],
-    side: "left",
     cardClassName: "-rotate-2",
     markerClassName: "bg-coral-pink",
     variant: "rhombus",
@@ -55,14 +65,14 @@ const careerItems = [
 
 const CareerSection = () => {
   return (
-    <section className="relative bg-pink-light px-4 sm:px-8 py-20">
+    <section className="relative bg-pink-light px-4 py-20 sm:px-8">
       <HeaderSection
         title="CAREER HIGHLIGHTS"
         subtitle="A Journey of Growth and Impact"
       />
       <Timeline>
         {careerItems.map((item) => (
-          <TimelineItem key={`${item.period}-${item.role}`} side={item.side}>
+          <TimelineItem key={`${item.period}-${item.role}`}>
             <TimelineContent>
               <div
                 className={`border-4 border-border bg-off-white p-6 font-manrope shadow-shadow ${item.cardClassName}`}

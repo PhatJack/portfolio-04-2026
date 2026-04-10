@@ -2,8 +2,6 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
-type TimelineItemSide = "left" | "right"
-
 function Timeline({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
@@ -23,20 +21,12 @@ function Timeline({ className, ...props }: React.ComponentProps<"div">) {
   )
 }
 
-function TimelineItem({
-  className,
-  side = "left",
-  ...props
-}: React.ComponentProps<"div"> & {
-  side?: TimelineItemSide
-}) {
+function TimelineItem({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="timeline-item"
-      data-side={side}
       className={cn(
-        "relative flex flex-col items-center justify-between",
-        side === "right" ? "md:flex-row-reverse" : "md:flex-row",
+        "relative flex flex-col items-center justify-between md:flex-row md:odd:flex-row-reverse",
         className
       )}
       {...props}
