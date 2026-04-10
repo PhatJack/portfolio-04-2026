@@ -6,20 +6,20 @@ const AboutSection = () => {
   return (
     <Card className="w-full bg-sky-blue">
       <CardContent>
-        <div className="flex flex-col gap-6 lg:flex-row">
-          <div className="relative aspect-3/4 w-full border-4 border-border sm:w-2/3 md:w-1/2 lg:w-[30%]">
-            <img
-              src="avt2.png"
-              alt="Portrait of Jack Phat"
-              className="relative z-10 h-full w-full object-cover"
-            />
-            <div className="absolute -bottom-2 -left-4 z-50 -rotate-10">
-              <Badge className="bg-bold-yellow px-3 py-1 font-manrope text-sm shadow-shadow sm:px-4 sm:py-1.5 sm:text-base">
-                EST 2003
-              </Badge>
+        <div className="flex flex-col gap-6 xl:flex-row">
+          <div className="flex flex-col gap-6 md:flex-row">
+            <div className="relative aspect-3/4 w-full border-4 border-border sm:w-2/3 md:w-1/2 xl:w-[30%]">
+              <img
+                src="avt2.png"
+                alt="Portrait of Jack Phat"
+                className="relative z-10 h-full w-full object-cover"
+              />
+              <div className="absolute -bottom-2 -left-4 z-50 -rotate-10">
+                <Badge className="bg-bold-yellow px-3 py-1 font-manrope text-sm shadow-shadow sm:px-4 sm:py-1.5 sm:text-base">
+                  EST 2003
+                </Badge>
+              </div>
             </div>
-          </div>
-          <div className="flex w-full flex-col gap-6 xl:flex-row">
             <div className="flex w-full flex-col justify-between gap-4 font-manrope xl:w-3/5">
               <div className="flex flex-col gap-2">
                 <h2 className="text-3xl font-bold uppercase sm:text-4xl">
@@ -58,7 +58,9 @@ const AboutSection = () => {
                 </Button>
               </div>
             </div>
-            <div className="grid w-full grid-cols-2 gap-4 sm:gap-6 xl:w-2/5">
+          </div>
+          <div className="flex w-full flex-col gap-6 xl:flex-row">
+            <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4 sm:gap-6 xl:grid-cols-2">
               <div className="flex aspect-square flex-col items-center justify-center border-4 border-border bg-soft-orange">
                 <span className="font-manrope text-4xl font-bold sm:text-6xl lg:text-7xl">
                   1.5+

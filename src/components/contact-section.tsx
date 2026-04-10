@@ -16,7 +16,7 @@ const ContactSection = () => {
         </p>
         <div className="flex flex-wrap items-center gap-3 sm:gap-4">
           <a
-            className="flex w-full items-center justify-center gap-3 bg-black px-4 py-3 text-sm font-black text-white uppercase shadow-shadow sm:w-auto sm:justify-start sm:px-6 sm:py-2 sm:text-lg md:px-8 md:text-xl"
+            className="flex w-full items-center justify-center gap-3 border-2 border-white bg-black px-4 py-3 text-sm font-black text-white uppercase shadow-shadow sm:w-auto sm:justify-start sm:px-6 sm:py-2 sm:text-lg md:px-8 md:text-xl"
             href="mailto:tienphat.ng693@gmail.com"
           >
             Email Me @ tienphat.ng693@gmail.com
@@ -25,7 +25,7 @@ const ContactSection = () => {
             asChild
             variant="neutral"
             size="icon"
-            className="size-12 [&>svg]:size-5 sm:size-14 sm:[&>svg]:size-6"
+            className="size-12 [&>svg]:size-5 sm:[&>svg]:size-6"
           >
             <a href="#" className="inline-block">
               <Share2 />

@@ -6,7 +6,7 @@ const MENU_SOCIALS = [
     href: "https://www.instagram.com/sep_neit.tahp/",
   },
   {
-    label: "LINKEDLN",
+    label: "LINKEDIN",
     href: "https://www.linkedin.com/in/phat-nguyen-tien/",
   },
   {
@@ -45,7 +45,7 @@ const Footer = () => {
         </div>
         <div className="max-w-xs text-right">
           <Button
-            className="mb-4"
+            className="mb-4 uppercase"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           >
             Scroll to top

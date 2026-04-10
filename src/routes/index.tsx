@@ -5,6 +5,7 @@ import SkillsSection from "@/components/skills-section"
 import AboutSection from "@/components/about-section"
 import CareerSection from "@/components/career-section"
 import OfflineSection from "@/components/offline-section"
+import ProjectSection from "@/components/project-section"
 
 export const Route = createFileRoute("/")({ component: App })
 
@@ -36,6 +37,9 @@ function App() {
       </div>
       <div className="">
         <OfflineSection />
+      </div>
+      <div className="">
+        <ProjectSection />
       </div>
       <div id="contact" className="px-4 py-8 sm:p-8">
         <ContactSection />

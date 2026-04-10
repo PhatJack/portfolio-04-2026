@@ -10,7 +10,7 @@ const HeaderSection = ({ title, subtitle, className }: HeaderSectionProps) => {
   return (
     <div
       className={cn(
-        "relative z-10 mx-auto mb-12 flex max-w-2xl flex-col items-center border-4 border-border bg-off-white p-6 text-center shadow-shadow",
+        "relative z-10 mx-auto mb-12 flex max-w-2xl flex-col items-center border-4 border-border bg-off-white p-4 sm:p-6 text-center shadow-shadow",
         className
       )}
     >

@@ -49,7 +49,7 @@ const HOBBIES = [
     name: "Coffee",
     icon: <Coffee />,
     className:
-      "shadow-soft-orange hover:shadow-soft-orange-hover",
+      "md:col-span-3 shadow-soft-orange hover:shadow-soft-orange-hover",
   },
 ]
 
