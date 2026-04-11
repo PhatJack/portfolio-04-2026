@@ -34,7 +34,7 @@ const Footer = () => {
 
     gsap.fromTo(
       innerRef.current,
-      { yPercent: -70 },
+      { yPercent: -65 },
       {
         yPercent: 0,
         ease: "none",

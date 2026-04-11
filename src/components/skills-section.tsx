@@ -3,9 +3,39 @@ import { Badge } from "./ui/badge"
 import { cn } from "@/lib/utils"
 import { useRef } from "react"
 import HeaderSection from "./shared/header-section"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const SkillsSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return
+
+      gsap.fromTo(
+        sectionRef.current.querySelectorAll(".skill-card"),
+        { y: 70, opacity: 0, rotate: -1.5 },
+        {
+          y: 0,
+          opacity: 1,
+          rotate: 0,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+            once: true,
+          },
+        }
+      )
+    },
+    { scope: sectionRef }
+  )
 
   const skills = [
     {
@@ -48,7 +78,7 @@ const SkillsSection = () => {
       <HeaderSection
         title="SKILL STACK"
         subtitle="Tools and Technologies I Work With"
-				className="ml-0 mr-auto text-left"
+        className="ml-0 mr-auto text-left"
       />
 
       <div className="relative z-10 grid grid-cols-1 gap-6 md:grid-cols-12">

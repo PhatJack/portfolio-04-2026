@@ -1,5 +1,11 @@
 import { Badge } from "./ui/badge"
 import { Button } from "./ui/button"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useRef } from "react"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const projects = [
   {
@@ -85,10 +91,55 @@ const projects = [
 ]
 
 const ProjectSection = () => {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return
+
+      gsap.fromTo(
+        sectionRef.current.querySelectorAll("[data-project-heading]"),
+        { x: -50, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.7,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 78%",
+            once: true,
+          },
+        }
+      )
+
+      gsap.fromTo(
+        sectionRef.current.querySelectorAll("[data-project-item]"),
+        { y: 55, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.85,
+          stagger: 0.14,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 72%",
+            once: true,
+          },
+        }
+      )
+    },
+    { scope: sectionRef }
+  )
+
   return (
-    <div className="border-y-4 border-border bg-off-white px-4 py-20 font-manrope sm:px-8">
+    <section
+      ref={sectionRef}
+      className="border-y-4 border-border bg-off-white px-4 py-20 font-manrope sm:px-8"
+    >
       <div className="w-full">
-        <div className="mb-16 flex items-end gap-4">
+        <div data-project-heading className="mb-16 flex items-end gap-4">
           <h3 className="text-left text-6xl whitespace-nowrap uppercase md:leading-[0.75] md:text-8xl">
             Gallery of{" "}
             <span className="text-transparent [-webkit-text-stroke:4px_var(--bold-yellow)]">
@@ -105,6 +156,7 @@ const ProjectSection = () => {
           {projects.map((project) => (
             <div
               key={project.id}
+              data-project-item
               className={`group relative flex flex-col border-b-4 border-border transition-colors duration-300 ${project.color}`}
             >
               {/* Header Row */}
@@ -200,7 +252,7 @@ const ProjectSection = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 

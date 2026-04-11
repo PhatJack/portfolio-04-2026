@@ -5,7 +5,13 @@ import {
   TimelineMarker,
   TimelineSpacer,
 } from "@/components/ui/timeline"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useRef } from "react"
 import HeaderSection from "./shared/header-section"
+
+gsap.registerPlugin(ScrollTrigger)
 
 const careerItems = [
   {
@@ -64,15 +70,85 @@ const careerItems = [
 ] as const
 
 const CareerSection = () => {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useGSAP(
+    () => {
+      if (!sectionRef.current) return
+
+      const lineEl = sectionRef.current.querySelector("[data-slot='timeline-line']")
+      const itemEls = Array.from(
+        sectionRef.current.querySelectorAll<HTMLElement>("[data-career-item]")
+      )
+      const markerEls = sectionRef.current.querySelectorAll("[data-slot='timeline-marker']")
+
+      if (lineEl) {
+        gsap.fromTo(
+          lineEl,
+          { scaleY: 0, transformOrigin: "top center" },
+          {
+            scaleY: 1,
+            ease: "none",
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 78%",
+              end: "bottom 35%",
+              scrub: true,
+            },
+          }
+        )
+      }
+
+      itemEls.forEach((item, index) => {
+        const isOdd = (index + 1) % 2 !== 0
+
+        gsap.fromTo(
+          item,
+          { x: isOdd ? -70 : 70, y: 24, autoAlpha: 0 },
+          {
+            x: 0,
+            y: 0,
+            autoAlpha: 1,
+            duration: 0.9,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: item,
+              start: "top 82%",
+              once: true,
+            },
+          }
+        )
+      })
+
+      gsap.fromTo(
+        markerEls,
+        { scale: 0, autoAlpha: 0, transformOrigin: "center center" },
+        {
+          scale: 1,
+          autoAlpha: 1,
+          duration: 0.45,
+          stagger: 0.15,
+          ease: "back.out(1.5)",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 75%",
+            once: true,
+          },
+        }
+      )
+    },
+    { scope: sectionRef }
+  )
+
   return (
-    <section className="relative bg-pink-light px-4 py-20 sm:px-8">
+    <section ref={sectionRef} className="relative bg-pink-light px-4 py-20 sm:px-8">
       <HeaderSection
         title="CAREER HIGHLIGHTS"
         subtitle="A Journey of Growth and Impact"
       />
       <Timeline>
         {careerItems.map((item) => (
-          <TimelineItem key={`${item.period}-${item.role}`}>
+          <TimelineItem data-career-item key={`${item.period}-${item.role}`}>
             <TimelineContent>
               <div
                 className={`border-4 border-border bg-off-white p-6 font-manrope shadow-shadow ${item.cardClassName}`}

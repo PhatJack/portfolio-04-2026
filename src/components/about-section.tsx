@@ -1,10 +1,55 @@
 import { Badge } from "./ui/badge"
 import { Button } from "./ui/button"
 import { Card, CardContent } from "./ui/card"
+import { useRef } from "react"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+gsap.registerPlugin(ScrollTrigger)
+
+const STATS = [
+  { value: 1.5, decimals: 1, suffix: "+", label: "experiences", tone: "bg-soft-orange" },
+  { value: 2, decimals: 0, suffix: "+", label: "clients", tone: "bg-coral-pink" },
+  { value: 10, decimals: 0, suffix: "+", label: "projects", tone: "bg-soft-green" },
+  { value: 8, decimals: 0, suffix: "+", label: "github stars", tone: "bg-bold-yellow" },
+] as const
 
 const AboutSection = () => {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const countRefs = useRef<Array<HTMLSpanElement | null>>([])
+
+  useGSAP(
+    () => {
+      if (!cardRef.current) return
+
+      ScrollTrigger.create({
+        trigger: cardRef.current,
+        start: "top 78%",
+        once: true,
+        onEnter: () => {
+          STATS.forEach((stat, index) => {
+            const targetEl = countRefs.current[index]
+            if (!targetEl) return
+
+            const state = { value: 0 }
+            gsap.to(state, {
+              value: stat.value,
+              duration: 1.4,
+              ease: "power2.out",
+              onUpdate: () => {
+                targetEl.textContent = `${state.value.toFixed(stat.decimals)}${stat.suffix}`
+              },
+            })
+          })
+        },
+      })
+    },
+    { scope: cardRef }
+  )
+
   return (
-    <Card className="w-full bg-sky-blue">
+    <Card ref={cardRef} className="w-full bg-sky-blue">
       <CardContent>
         <div className="flex flex-col gap-6 xl:flex-row">
           <div className="flex flex-col gap-6 md:flex-row">
@@ -61,38 +106,24 @@ const AboutSection = () => {
           </div>
           <div className="flex w-full flex-col gap-6 xl:flex-row">
             <div className="grid w-full grid-cols-2 gap-4 md:grid-cols-4 sm:gap-6 xl:grid-cols-2">
-              <div className="flex aspect-square flex-col items-center justify-center border-4 border-border bg-soft-orange">
-                <span className="font-manrope text-4xl font-bold sm:text-6xl lg:text-7xl">
-                  1.5+
-                </span>
-                <p className="text-sm font-medium sm:text-lg lg:text-xl">
-                  experiences
-                </p>
-              </div>
-              <div className="flex aspect-square flex-col items-center justify-center border-4 border-border bg-coral-pink">
-                <span className="font-manrope text-4xl font-bold sm:text-6xl lg:text-7xl">
-                  2+
-                </span>
-                <p className="font-manrope text-sm font-medium sm:text-lg lg:text-xl">
-                  clients
-                </p>
-              </div>
-              <div className="flex aspect-square flex-col items-center justify-center border-4 border-border bg-soft-green">
-                <span className="font-manrope text-4xl font-bold sm:text-6xl lg:text-7xl">
-                  10+
-                </span>
-                <p className="font-manrope text-sm font-medium sm:text-lg lg:text-xl">
-                  projects
-                </p>
-              </div>
-              <div className="flex aspect-square flex-col items-center justify-center border-4 border-border bg-bold-yellow">
-                <span className="font-manrope text-4xl font-bold sm:text-6xl lg:text-7xl">
-                  8+
-                </span>
-                <p className="font-manrope text-sm font-medium sm:text-lg lg:text-xl">
-                  github stars
-                </p>
-              </div>
+              {STATS.map((stat, index) => (
+                <div
+                  key={stat.label}
+                  className={`flex aspect-square flex-col items-center justify-center border-4 border-border ${stat.tone}`}
+                >
+                  <span
+                    ref={(el) => {
+                      countRefs.current[index] = el
+                    }}
+                    className="font-manrope text-4xl font-bold sm:text-6xl lg:text-7xl"
+                  >
+                    {`${(0).toFixed(stat.decimals)}${stat.suffix}`}
+                  </span>
+                  <p className="font-manrope text-sm font-medium sm:text-lg lg:text-xl">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
