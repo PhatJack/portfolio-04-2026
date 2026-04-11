@@ -40,6 +40,14 @@ export const Route = createRootRoute({
         property: "og:image:alt",
         content: "Portfolio preview of Jack Phat",
       },
+			{
+        property: "og:url",
+        content: "https://www.willam2003.site",
+      },
+			{
+        property: "og:type",
+        content: "website",
+      },
       // ✅ Twitter Card
       {
         name: "twitter:card",
