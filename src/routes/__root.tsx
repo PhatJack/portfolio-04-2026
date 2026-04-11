@@ -3,7 +3,8 @@ import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router"
 import appCss from "../styles.css?url"
 import Header from "@/components/shared/header"
 import Footer from "@/components/shared/footer"
-
+import { injectSpeedInsights } from '@vercel/speed-insights';
+import { inject } from '@vercel/analytics';
 export const Route = createRootRoute({
   head: () => ({
     meta: [
@@ -86,6 +87,8 @@ export const Route = createRootRoute({
 })
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+	injectSpeedInsights();
+	inject();
   return (
     <html lang="en">
       <head>
