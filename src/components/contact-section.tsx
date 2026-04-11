@@ -43,7 +43,7 @@ const ContactSection = () => {
         data-contact-reveal
         className="absolute right-2 bottom-2 rotate-85 opacity-10 sm:right-6 sm:bottom-3 md:right-10 md:bottom-5"
       >
-        <Send className="size-40 sm:size-56 md:size-75" />
+        <Send className="size-40 sm:size-56 md:size-75 opacity-25" />
       </div>
       <div className="relative z-10 max-w-3xl">
         <h2
