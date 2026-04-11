@@ -12,7 +12,7 @@ const STATS = [
   { value: 1.5, decimals: 1, suffix: "+", label: "experiences", tone: "bg-soft-orange" },
   { value: 2, decimals: 0, suffix: "+", label: "clients", tone: "bg-coral-pink" },
   { value: 10, decimals: 0, suffix: "+", label: "projects", tone: "bg-soft-green" },
-  { value: 8, decimals: 0, suffix: "+", label: "github stars", tone: "bg-bold-yellow" },
+  { value: 12, decimals: 0, suffix: "+", label: "github stars", tone: "bg-bold-yellow" },
 ] as const
 
 const AboutSection = () => {
