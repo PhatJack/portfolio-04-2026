@@ -140,14 +140,14 @@ const ProjectSection = () => {
     >
       <div className="w-full">
         <div data-project-heading className="mb-16 flex items-end gap-4">
-          <h3 className="text-left text-6xl whitespace-nowrap uppercase md:leading-[0.75] md:text-8xl">
+          <h3 className="text-left text-6xl uppercase sm:whitespace-nowrap md:text-8xl md:leading-[0.75]">
             Gallery of{" "}
             <span className="text-transparent [-webkit-text-stroke:4px_var(--bold-yellow)]">
               work
             </span>
           </h3>
-          <span className="h-1 w-full bg-border/50 mb-1" />
-          <span className="text-lg font-black whitespace-nowrap md:text-xl">
+          <span className="mb-1 h-1 w-full bg-border sm:inline hidden" />
+          <span className="text-lg font-black whitespace-nowrap md:text-xl sm:inline hidden">
             5 PROJECTS
           </span>
         </div>

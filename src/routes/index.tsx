@@ -55,13 +55,13 @@ function App() {
       <div id="skills">
         <SkillsSection />
       </div>
-      <div className="">
+      <div id="career">
         <CareerSection />
       </div>
-      <div className="">
+      <div id="offline">
         <OfflineSection />
       </div>
-      <div id="projects" className="">
+      <div id="projects">
         <ProjectSection />
       </div>
       <div id="contact" className="px-4 py-8 sm:p-8">
